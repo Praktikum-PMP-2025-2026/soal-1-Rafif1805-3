@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct data {
     char nama[50];
@@ -28,6 +29,7 @@ int main(void){
     data highdatapagi;
     data highdatasiang;
     data highdatamalam;
+    int cmp;
 
     //INPUTAN
     for (int i = 0; i < n ; i++){
@@ -70,8 +72,17 @@ int main(void){
                             if (daftarPekerja[j].id < daftarPekerja[i].id){
                                 highdatapagi = daftarPekerja[j];
                             }
-                            else if (daftarPekerja[j].skor >= daftarPekerja[i].skor){
+                            else if (daftarPekerja[j].skor > daftarPekerja[i].skor){
                                 highdatapagi = daftarPekerja[i];
+                            }
+                            else{
+                                cmp = strcmp(daftarPekerja[j].nama, daftarPekerja[i].nama);
+                                if (cmp > 0){
+                                    highdatapagi = daftarPekerja[i];
+                                }
+                                else if (cmp <= 0){
+                                    highdatapagi = daftarPekerja[j];
+                                }
                             }
                         }
                     }
@@ -95,9 +106,18 @@ int main(void){
                             if (daftarPekerja[j].id < daftarPekerja[i].id){
                                 highdatasiang = daftarPekerja[j];
                             }
-                            else if (daftarPekerja[j].skor >= daftarPekerja[i].skor){
+                            else if (daftarPekerja[j].skor > daftarPekerja[i].skor){
                                 highdatasiang = daftarPekerja[i];
                             }
+                            else{
+                                cmp = strcmp(daftarPekerja[j].nama, daftarPekerja[i].nama);
+                                if (cmp > 0){
+                                    highdatasiang = daftarPekerja[i];
+                                }
+                                else if (cmp <= 0){
+                                    highdatasiang = daftarPekerja[j];
+                                }
+                            }                            
                         }
                     }
                 }
@@ -120,9 +140,18 @@ int main(void){
                             if (daftarPekerja[j].id < daftarPekerja[i].id){
                                 highdatamalam = daftarPekerja[j];
                             }
-                            else if (daftarPekerja[j].skor >= daftarPekerja[i].skor){
+                            else if (daftarPekerja[j].skor > daftarPekerja[i].skor){
                                 highdatamalam = daftarPekerja[i];
                             }
+                            else{
+                                cmp = strcmp(daftarPekerja[j].nama, daftarPekerja[i].nama);
+                                if (cmp > 0){
+                                    highdatamalam = daftarPekerja[i];
+                                }
+                                else if (cmp <= 0){
+                                    highdatamalam = daftarPekerja[j];
+                                }
+                            }                            
                         }
                     }
                 }
