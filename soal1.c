@@ -19,19 +19,15 @@ typedef struct data {
 
 int main(void){
     int n; //jumlah inputan
+    scanf("%d", &n);
     char inputnama[50];
     int inputid;
     char inputshift[50];
     int inputskor;
-    int count = 0;
-    data *daftarPekerja = NULL;
-    int highskor;
-    int lowid;
+    data daftarPekerja[n];
     data highdatapagi;
     data highdatasiang;
     data highdatamalam;
-    
-    scanf("%d", &n);
 
     //INPUTAN
     for (int i = 0; i < n ; i++){
@@ -39,12 +35,6 @@ int main(void){
         scanf("%d", &inputid);
         scanf("%s", inputshift);
         scanf("%d", &inputskor);
-
-        daftarPekerja = (data *)realloc(daftarPekerja, i * sizeof(data));
-        if (daftarPekerja == NULL) {
-            free(daftarPekerja);
-            return 1; // Keluar jika alokasi memori gagal
-        }
         
         int j = 0;
         while (daftarPekerja[i].nama[j] != 0){
@@ -52,14 +42,11 @@ int main(void){
         }
         daftarPekerja[i].nama[i] = inputnama[i];
         daftarPekerja[i].id = inputid;
-        int j = 0;
-        while (daftarPekerja[i].shift[j] != 0){
-            daftarPekerja[i].shift[j] = inputshift[j];            
+        int k = 0;
+        while (daftarPekerja[i].shift[k] != 0){
+            daftarPekerja[i].shift[k] = inputshift[k];            
         }
         daftarPekerja[i].skor = inputskor;
-
-
-
     }
     
     // PENGOLAHAN
@@ -159,7 +146,6 @@ int main(void){
     printf("%d ", highdatamalam.id);
     printf("%d\n", highdatamalam.skor);
 
-    free(daftarPekerja);
     return 0;
 }
 
