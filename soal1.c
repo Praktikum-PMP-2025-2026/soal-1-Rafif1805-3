@@ -9,7 +9,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 typedef struct data {
     char nama[50];
@@ -57,10 +56,10 @@ int main(void){
     else if (n != 0){
         //PAGI
         for (int i = 0; i < n; i++){
-            if (strcmp(daftarPekerja[i].shift, 'PAGI') == 0){
+            if (daftarPekerja[i].shift == 'PAGI'){
                 highdatapagi = daftarPekerja[0];
                 for (int j = i + 1; j < n; j++){
-                    if (strcmp(daftarPekerja[i].shift, 'PAGI') == 0){
+                    if (daftarPekerja[j].shift == 'PAGI'){
                         if (daftarPekerja[j].skor > daftarPekerja[i].skor){
                             highdatapagi = daftarPekerja[j];
                         }
@@ -82,10 +81,10 @@ int main(void){
 
         //SIANG
         for (int i = 0; i < n; i++){
-            if (strcmp(daftarPekerja[i].shift, 'SIANG') == 0){
+            if (daftarPekerja[i].shift == 'SIANG'){
                 highdatasiang = daftarPekerja[0];
                 for (int j = i + 1; j < n; j++){
-                    if (strcmp(daftarPekerja[i].shift, 'SIANG') == 0){
+                    if (daftarPekerja[j].shift == 'SIANG'){
                         if (daftarPekerja[j].skor > daftarPekerja[i].skor){
                             highdatasiang = daftarPekerja[j];
                         }
@@ -107,10 +106,10 @@ int main(void){
         
         //MALAM
         for (int i = 0; i < n; i++){
-            if (strcmp(daftarPekerja[i].shift, 'MALAM') == 0){
+            if (daftarPekerja[i].shift == 'MALAM'){
                 highdatamalam = daftarPekerja[0];
                 for (int j = i + 1; j < n; j++){
-                    if (strcmp(daftarPekerja[i].shift, 'MALAM') == 0){
+                    if (daftarPekerja[j].shift == 'MALAM'){
                         if (daftarPekerja[j].skor > daftarPekerja[i].skor){
                             highdatamalam = daftarPekerja[j];
                         }
