@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct data {
     char nama[50];
@@ -53,13 +54,13 @@ int main(void){
     if (n == 0){
         printf("-");
     }
-    else if (n =! 0){
+    else if (n != 0){
         //PAGI
         for (int i = 0; i < n; i++){
-            if (daftarPekerja[i].shift == 'PAGI'){
+            if (strcmp(daftarPekerja[i].shift, 'PAGI') == 0){
                 highdatapagi = daftarPekerja[0];
                 for (int j = i + 1; j < n; j++){
-                    if (daftarPekerja[j].shift == 'PAGI'){
+                    if (strcmp(daftarPekerja[i].shift, 'PAGI') == 0){
                         if (daftarPekerja[j].skor > daftarPekerja[i].skor){
                             highdatapagi = daftarPekerja[j];
                         }
@@ -81,10 +82,10 @@ int main(void){
 
         //SIANG
         for (int i = 0; i < n; i++){
-            if (daftarPekerja[i].shift == 'SIANG'){
+            if (strcmp(daftarPekerja[i].shift, 'SIANG') == 0){
                 highdatasiang = daftarPekerja[0];
                 for (int j = i + 1; j < n; j++){
-                    if (daftarPekerja[j].shift == 'SIANG'){
+                    if (strcmp(daftarPekerja[i].shift, 'SIANG') == 0){
                         if (daftarPekerja[j].skor > daftarPekerja[i].skor){
                             highdatasiang = daftarPekerja[j];
                         }
@@ -106,10 +107,10 @@ int main(void){
         
         //MALAM
         for (int i = 0; i < n; i++){
-            if (daftarPekerja[i].shift == 'MALAM'){
+            if (strcmp(daftarPekerja[i].shift, 'MALAM') == 0){
                 highdatamalam = daftarPekerja[0];
                 for (int j = i + 1; j < n; j++){
-                    if (daftarPekerja[j].shift == 'MALAM'){
+                    if (strcmp(daftarPekerja[i].shift, 'MALAM') == 0){
                         if (daftarPekerja[j].skor > daftarPekerja[i].skor){
                             highdatamalam = daftarPekerja[j];
                         }
